@@ -1,0 +1,23 @@
+{
+  "name": "play-with-rabbitmq",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/hanlinkhaing/play-with-rabbitmq.git"
+  },
+  "keywords": [
+    "rabbitmq",
+    "nodejs"
+  ],
+  "author": "Han Lin Khaing",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hanlinkhaing/play-with-rabbitmq/issues"
+  },
+  "homepage": "https://github.com/hanlinkhaing/play-with-rabbitmq#readme"
+}
