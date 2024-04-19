@@ -1,12 +1,10 @@
-import amqplib from "amqplib";
+import { createConnection } from "../common.js";
 
 var i = 0;
 
 (async () => {
   const queue = "tasks";
-  const connection = await amqplib.connect(
-    "amqp://root:RootPwd@165.22.100.157:5672"
-  );
+  const connection = await createConnection();
 
   const channel = await connection.createChannel();
 
