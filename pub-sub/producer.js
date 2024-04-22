@@ -7,7 +7,6 @@ var i = 0;
   const connection = await createConnection();
 
   const channel = await connection.createChannel();
-  // "direct" | "topic" | "headers" | "fanout" | "match";
   channel.assertExchange(exchange, "fanout");
 
   setInterval(() => {

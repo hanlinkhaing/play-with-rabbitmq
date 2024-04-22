@@ -1,21 +1,21 @@
 import { createConnection } from "../common.js";
 
 (async () => {
-  const exchange = "topic-exc";
+  const exchange = "routing-exc";
   const connection = await createConnection();
 
   const channel = await connection.createChannel();
-  await channel.assertExchange(exchange, "topic");
+  await channel.assertExchange(exchange, "direct");
 
-  const strs = ["1.route", "2.route"];
+  const q = await channel.assertQueue("");
 
-  const q = await channel.assertQueue();
-
-  await channel.bindQueue(q.queue, exchange, "1.*");
+  await channel.bindQueue(q.queue, exchange, "route.consumer.2");
 
   channel.consume(q.queue, (msg) => {
     if (msg !== null) {
+      console.log("Consumer 2");
       console.log(msg.fields.routingKey, " : ", msg.content.toString());
+      console.log();
     } else {
       console.log("Consumer cancelled by server");
     }

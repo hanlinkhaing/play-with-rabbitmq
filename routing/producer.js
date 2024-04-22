@@ -10,11 +10,11 @@ var i = 0;
   channel.assertExchange(exchange, "direct");
 
   setInterval(() => {
-    const str = i % 2 === 0 ? "route-1" : "route-2";
+    const routingKey = i % 2 === 0 ? "route.consumer.1" : "route.consumer.2";
     channel.publish(
       exchange,
-      str,
-      Buffer.from(`${str} consumer and producer : ${++i}`)
+      routingKey,
+      Buffer.from(`${routingKey} consumer and producer : ${++i}`)
     );
   }, 1000);
 })();

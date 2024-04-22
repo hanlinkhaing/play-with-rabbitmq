@@ -12,11 +12,7 @@ var i = 0;
   channel.assertExchange(exchange, "topic");
 
   setInterval(() => {
-    const str = i % 2 === 0 ? "1.route" : "2.route";
-    channel.publish(
-      exchange,
-      str,
-      Buffer.from(`${str} consumer and producer : ${++i}`)
-    );
+    const str = i % 2 === 0 ? "route.status.complete" : "route.status.cancel";
+    channel.publish(exchange, str, Buffer.from(`${str} topic : ${++i}`));
   }, 1000);
 })();
